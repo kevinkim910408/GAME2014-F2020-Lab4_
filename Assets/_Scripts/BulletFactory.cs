@@ -2,30 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class BulletFactory : MonoBehaviour
 {
-    public BulletController bullet;
-    public BulletController fatBullet;
-    public BulletController pulsingBullet;
+    [Header("Bullet Types")]
+    public GameObject regularBullet;
+    public GameObject fatBullet;
+    public GameObject pulsingBullet;
 
+    public BulletManager bulletManager;
 
-    public BulletController createBullet(string name)
+   public GameObject createBullet (BulletType type = BulletType.RANDOM)
     {
-        BulletController tempBullet;
-
-
-        switch (name)
+        if(type == BulletType.RANDOM)
         {
-            case "Bullet":
-                tempBullet = Instantiate(this.bullet,);
+            var randomBullet = Random.Range(0, 3);
+            type = (BulletType)randomBullet;
+
+        }
+
+        GameObject tempBullet = null;
+
+        switch(type)
+        {
+            case BulletType.REGULAR:
+                tempBullet = Instantiate(regularBullet);
                 break;
-            case "Fat Bullet":
-                Debug.Log(" + 20");
+            case BulletType.FAT:
+                tempBullet = Instantiate(fatBullet);
                 break;
-            case "Pulsing Bullet":
-                Debug.Log(" + 30");
+            case BulletType.PULSING:
+                tempBullet = Instantiate(pulsingBullet);
                 break;
         }
+
+        tempBullet.transform.parent = transform;
+        tempBullet.SetActive(false);
 
         return tempBullet;
     }

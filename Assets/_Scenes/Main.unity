@@ -267,6 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 487696224}
   - component: {fileID: 487696223}
+  - component: {fileID: 487696225}
   m_Layer: 0
   m_Name: BulleManager
   m_TagString: Untagged
@@ -286,9 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0f3dfbaa078704aa28cd4fae05ffcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 6758629138613977725, guid: 0ca363660e122ca4d8a691c947b8df5e, type: 3}
-  fatBullet: {fileID: 5244687667342152703, guid: e0dbb0168421e334d9ad4e88de0afd83, type: 3}
-  pulsingBullet: {fileID: 1464666333950083084, guid: cc07db23716c0cf46a9ca03c16796446, type: 3}
+  bulletFactory: {fileID: 0}
   MaxBullets: 50
 --- !u!4 &487696224
 Transform:
@@ -304,6 +303,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &487696225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487696222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17acb0f55f4f96a4ca61f6d1d776c1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regularBullet: {fileID: 6758629138613977725, guid: 0ca363660e122ca4d8a691c947b8df5e, type: 3}
+  fatBullet: {fileID: 5244687667342152703, guid: e0dbb0168421e334d9ad4e88de0afd83, type: 3}
+  pulsingBullet: {fileID: 1464666333950083084, guid: cc07db23716c0cf46a9ca03c16796446, type: 3}
+  bulletManager: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
